@@ -1,5 +1,5 @@
 streamlit
-ServiceAccountCredentials
+oauth2client
 pandas
 
 
