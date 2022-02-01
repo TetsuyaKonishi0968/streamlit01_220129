@@ -1,5 +1,5 @@
 streamlit
 oauth2client
 pandas
-
+gspread
 
