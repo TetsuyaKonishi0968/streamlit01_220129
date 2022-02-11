@@ -18,7 +18,7 @@ import pandas as pd
 
 
 # 設定
-json_path = './studied-sled-334213-6dc288d114db.json'
+json_path = st.secrets.json_path
 
 gss_key = "1KUUf73iGU9Ggw1CnYgfenNNDNtGbjzg3PQz_d_lo_28"
 ## GoogleスプレッドシートとGoogleドライブのURL（ここは共通）
