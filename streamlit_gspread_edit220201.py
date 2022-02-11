@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
+# In[16]:
 
 
-#import streamlit as st
+import streamlit as st
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -14,15 +14,19 @@ from operator import itemgetter
 
 import pandas as pd
 
+#st.write("DB username:", st.secrets["db_username"])
+
+
 # 設定
-json_path = './optimum-spring-341011-f6d22a0e8cd2.json'
+json_path = './secrets.json'
 
 gss_key = st.secrets["key"]["gss_key"]
+
 ## GoogleスプレッドシートとGoogleドライブのURL（ここは共通）
 api = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 
 # 認証処理
-cred = ServiceAccountCredentials.from_json_keyfile_name(json_path, api)
+cred = ServiceAccountCredentials.from_json_keyfile_name(json_path,api)
 gs_auth = gspread.authorize(cred)
 
 # Work Sheet取得
@@ -104,7 +108,7 @@ df = pd.DataFrame(ccList,
                    #index=['row1', 'row2'],
                   columns=['col1', 'col2', 'col3', 'col4', 'col5', 'col6', 'col7', 'col8', 'col9'])
 
-print(df)
+st.dataframe(df)
 
     
 
@@ -119,6 +123,7 @@ cell_dict = lang_ws.get_all_records(empty2zero=False ,head=2, default_blank='')
 #選択したワークシートの行数を取得
 rowCount = lang_ws.row_count
 #print(rowCount)
+
 
 
 # In[ ]:
